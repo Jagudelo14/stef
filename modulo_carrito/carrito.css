@@ -1,0 +1,149 @@
+/*
+ * ### Archivo: carrito.css ###
+ * Autor: Juan Camilo Agudelo (Jagudelo14)
+ * Correo: camiloagu1401@gmail.com
+ * Formación: Tecnólogo ADSO - SENA
+ * Ficha: 3186662
+ * Fecha: 2026-10-19
+ * Descripción: Estilos del carrito de compras
+ */
+
+/* ### Cuerpo ### */
+.cuerpo-carrito {
+  border-top: 1px solid var(--line-default);
+  padding: var(--gutter);
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.lineas-carrito {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* ### Línea de producto ### */
+.linea {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line-default);
+}
+
+.linea-foto {
+  width: 120px;
+  height: 150px;
+  flex-shrink: 0;
+  background-image: linear-gradient(128.66deg, rgb(36, 43, 46) 0%, rgb(10, 13, 15) 71.429%);
+}
+
+.linea-info {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.linea-nombre {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.linea-nombre:hover {
+  color: var(--accent-neon);
+}
+
+.linea-variante {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.48px;
+  color: var(--text-muted);
+  white-space: pre;
+}
+
+.linea-quitar {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  text-decoration: underline;
+}
+
+.linea-quitar:hover {
+  color: var(--accent-neon);
+}
+
+.linea-precio {
+  width: 120px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* ### Cupón ### */
+.cupon {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 28px 0;
+}
+
+.cupon-boton {
+  padding: 15px 28px;
+}
+
+.cupon-aplicado {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--accent-neon);
+}
+
+/* ### Responsive ### */
+@media (max-width: 900px) {
+  .cuerpo-carrito {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .lineas-carrito {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .linea {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .linea-foto {
+    width: 88px;
+    height: 110px;
+  }
+
+  .linea-info {
+    flex-basis: calc(100% - 104px);
+  }
+
+  .linea .contador {
+    margin-left: 104px;
+  }
+
+  .linea-precio {
+    flex: 1 0 0;
+    width: auto;
+  }
+
+  .cupon {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

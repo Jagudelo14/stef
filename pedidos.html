@@ -1,0 +1,59 @@
+<!--
+  ### Archivo: pedidos.html ###
+  Autor: Juan Camilo Agudelo (Jagudelo14)
+  Correo: camiloagu1401@gmail.com
+  Formación: Tecnólogo ADSO - SENA
+  Ficha: 3186662
+  Fecha: 2026-10-19
+  Descripción: Cuenta del cliente con historial de pedidos, datos personales y direcciones
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis pedidos · STEF</title>
+  <link rel="icon" type="image/png" href="assets/img/logo-marca.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Componentes/global.css">
+  <link rel="stylesheet" href="modulo_pedidos/pedidos.css">
+</head>
+<body>
+  <!-- ### Encabezado ### -->
+  <header id="header"></header>
+
+  <main>
+    <!-- ### Cabecera ### -->
+    <section class="cabecera-pagina">
+      <p class="seccion-etiqueta" id="etiqueta-cuenta">— CUENTA</p>
+      <h1 id="titulo-cuenta">Mis pedidos</h1>
+    </section>
+
+    <!-- ### Cuerpo ### -->
+    <section class="cuerpo-cuenta">
+      <!-- ### Menú cuenta ### -->
+      <nav class="menu-cuenta" id="menu-cuenta" aria-label="Cuenta">
+        <button type="button" class="menu-cuenta-item activo" data-panel="pedidos">Pedidos</button>
+        <button type="button" class="menu-cuenta-item" data-panel="datos">Datos personales</button>
+        <button type="button" class="menu-cuenta-item" data-panel="direcciones">Direcciones</button>
+        <button type="button" class="menu-cuenta-item" data-panel="pagos">Métodos de pago</button>
+        <button type="button" class="menu-cuenta-item menu-cuenta-salir" data-accion="salir">Cerrar sesión</button>
+      </nav>
+
+      <!-- ### Panel ### -->
+      <div class="panel-cuenta" id="panel-cuenta"></div>
+    </section>
+  </main>
+
+  <!-- ### Pie de página ### -->
+  <footer id="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.all.min.js"></script>
+  <script src="Componentes/datos.js"></script>
+  <script src="Componentes/almacen.js"></script>
+  <script src="Componentes/componentes.js"></script>
+  <script src="modulo_pedidos/pedidos.js"></script>
+</body>
+</html>

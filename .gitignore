@@ -1,0 +1,10 @@
+# ### Archivo: .gitignore ###
+# Autor: Juan Camilo Agudelo (Jagudelo14)
+# Correo: camiloagu1401@gmail.com
+# Formación: Tecnólogo ADSO - SENA
+# Ficha: 3186662
+# Fecha: 2026-10-20
+# Descripción: Archivos que no se suben al repositorio web
+
+# instrucciones locales para claude
+CLAUDE.md

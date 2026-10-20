@@ -1,0 +1,335 @@
+/*
+ * ### Archivo: producto.css ###
+ * Autor: Juan Camilo Agudelo (Jagudelo14)
+ * Correo: camiloagu1401@gmail.com
+ * Formación: Tecnólogo ADSO - SENA
+ * Ficha: 3186662
+ * Fecha: 2026-10-19
+ * Descripción: Estilos del detalle de producto
+ */
+
+/* ### Migas ### */
+.migas-producto {
+  padding: 20px var(--gutter);
+  white-space: pre-wrap;
+}
+
+.migas-producto a:hover {
+  color: var(--accent-neon);
+}
+
+/* ### Producto ### */
+.producto {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+  padding: 8px var(--gutter);
+}
+
+/* ### Galería ### */
+.galeria {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 140px;
+}
+
+/* fotos de baja resolución, tamaño contenido */
+.galeria-principal {
+  width: 480px;
+  aspect-ratio: 318 / 400;
+  background-image: linear-gradient(127.97deg, rgb(36, 43, 46) 0%, rgb(10, 13, 15) 71.429%);
+}
+
+.galeria-principal .foto-etiqueta {
+  bottom: 16px;
+}
+
+/* ### Información ### */
+.info-producto {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.info-producto .seccion-etiqueta {
+  white-space: pre;
+}
+
+.info-titulo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 84px;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.info-precio {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.info-precio p {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.info-precio span {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.info-descripcion {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-muted);
+}
+
+.info-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  white-space: pre;
+}
+
+.info-label-fila {
+  display: flex;
+  align-items: center;
+}
+
+.info-label-fila .info-label {
+  flex: 1 0 0;
+}
+
+.info-guia {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  color: var(--accent-neon);
+}
+
+.info-guia:hover {
+  text-decoration: underline;
+}
+
+/* ### Selector color ### */
+/* medidas figma: 44px, gap 12 */
+.selector-colores {
+  display: flex;
+  gap: 12px;
+}
+
+.color-opcion {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  transition: all 0.3s ease;
+}
+
+.color-opcion:hover {
+  border-color: var(--text-primary);
+}
+
+.color-opcion.activo {
+  border: 3px solid var(--accent-neon);
+}
+
+/* ### Selector talla ### */
+.selector-tallas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.talla-opcion {
+  width: 64px;
+  height: 52px;
+  border: 1px solid var(--line-strong);
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.talla-opcion:hover:not(:disabled) {
+  border-color: var(--text-primary);
+}
+
+.talla-opcion.activo {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--text-on-paper);
+}
+
+.talla-opcion:disabled {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.info-stock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.48px;
+  color: var(--accent-neon);
+}
+
+.info-stock img {
+  width: 8px;
+  height: 8px;
+}
+
+/* ### Compra ### */
+.info-compra {
+  display: flex;
+  gap: 12px;
+}
+
+.contador-grande button {
+  padding: 17px 18px;
+  font-size: 16px;
+}
+
+.contador-grande span {
+  font-size: 15px;
+}
+
+.info-agregar {
+  flex: 1 0 0;
+  padding: 19px 28px;
+}
+
+.info-agregar:disabled {
+  background-color: var(--line-default);
+  border-color: var(--line-default);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* ### Detalles ### */
+.detalles details {
+  border-top: 1px solid var(--line-default);
+}
+
+.detalles summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 18px 0;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.04px;
+  cursor: pointer;
+}
+
+.detalles summary::-webkit-details-marker {
+  display: none;
+}
+
+.detalles summary::after {
+  content: "+";
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.detalles details[open] summary::after {
+  content: "−";
+}
+
+.detalles details p {
+  padding-bottom: 18px;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+
+/* ### Combina con ### */
+.combina {
+  padding: 96px var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.combina-titulo {
+  flex: 1 0 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 56px;
+  text-transform: uppercase;
+}
+
+/* ### Responsive ### */
+@media (max-width: 1280px) {
+  .galeria-principal {
+    width: 400px;
+  }
+
+  .info-titulo {
+    font-size: 64px;
+    line-height: 68px;
+  }
+}
+
+@media (max-width: 900px) {
+  .producto {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .galeria {
+    position: static;
+    width: 100%;
+  }
+
+  .galeria-principal {
+    width: 100%;
+  }
+
+  .info-producto {
+    width: 100%;
+  }
+
+  .info-titulo {
+    font-size: 52px;
+    line-height: 56px;
+  }
+
+  .combina {
+    padding: 64px var(--gutter);
+  }
+
+  .combina-titulo {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-titulo {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .talla-opcion {
+    width: 56px;
+  }
+}

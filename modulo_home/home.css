@@ -1,0 +1,465 @@
+/*
+ * ### Archivo: home.css ###
+ * Autor: Juan Camilo Agudelo (Jagudelo14)
+ * Correo: camiloagu1401@gmail.com
+ * Formación: Tecnólogo ADSO - SENA
+ * Ficha: 3186662
+ * Fecha: 2026-10-19
+ * Descripción: Estilos de la página de inicio
+ */
+
+/* ### Hero ### */
+.hero-home {
+  position: relative;
+  overflow: hidden;
+  height: 780px;
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 28px;
+  background-image: linear-gradient(173.69deg, rgb(13, 15, 18) 0%, rgb(23, 33, 36) 50.847%, rgb(10, 13, 15) 84.746%);
+}
+
+/* foto a la derecha, se funde con el fondo */
+.hero-foto {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.8);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 40%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 40%);
+}
+
+.hero-kicker {
+  position: relative;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 1.56px;
+  color: var(--accent-neon);
+  white-space: pre;
+}
+
+.hero-titulo {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(64px, 16.4vw, 236px);
+  line-height: 0.958;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.hero-pie {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.hero-texto {
+  width: 460px;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--text-muted);
+}
+
+.hero-acciones {
+  margin-left: auto;
+  display: flex;
+  gap: 40px;
+}
+
+/* ### Marquee ### */
+.marquee-home {
+  background-color: var(--accent-neon);
+  color: var(--text-on-paper);
+  overflow: hidden;
+  padding: 14px 0;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  font-family: var(--font-display);
+  font-size: 30px;
+  white-space: nowrap;
+  animation: marquee-desplazar 28s linear infinite;
+}
+
+.marquee-track span:nth-child(odd) {
+  letter-spacing: 1.2px;
+}
+
+/* contenido duplicado, -50% sin salto */
+@keyframes marquee-desplazar {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 20px)); }
+}
+
+/* ### Secciones ### */
+.seccion-home {
+  padding: 96px var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ### Editorial ### */
+.editorial-home {
+  display: flex;
+  height: 720px;
+  background-color: var(--bg-raised);
+}
+
+.editorial-foto {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 100%;
+  background-image: linear-gradient(137.29deg, rgb(36, 43, 46) 0%, rgb(10, 13, 15) 71.429%);
+}
+
+.editorial-texto {
+  width: 660px;
+  flex-shrink: 0;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+/* dos líneas fijas en desktop */
+.editorial-titulo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 84px;
+  line-height: 88px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.editorial-parrafo {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--text-muted);
+}
+
+/* ### Categorías ### */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.categoria-tarjeta {
+  height: 440px;
+  background-image: linear-gradient(125.86deg, rgb(36, 43, 46) 0%, rgb(10, 13, 15) 71.429%);
+  transition: transform 0.3s ease;
+}
+
+/* degradado para leer el nombre sobre la foto */
+.categoria-tarjeta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 11, 12, 0.85) 0%, rgba(10, 11, 12, 0) 45%);
+}
+
+.categoria-tarjeta:hover {
+  transform: translateY(-4px);
+}
+
+.categoria-tarjeta:hover .categoria-nombre {
+  color: var(--accent-neon);
+}
+
+.categoria-nombre {
+  position: absolute;
+  left: 20px;
+  bottom: 24px;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 44px;
+  letter-spacing: 0.88px;
+  transition: color 0.3s ease;
+}
+
+/* ### Beneficios ### */
+.beneficios-home {
+  border-top: 1px solid var(--line-default);
+  padding: var(--gutter);
+  display: flex;
+  gap: 48px;
+  font-size: 15px;
+}
+
+.beneficio {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.beneficio h3 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.beneficio p {
+  color: var(--text-muted);
+}
+
+/* ### Pie de página home ### */
+.footer-home {
+  background-color: var(--bg-raised);
+  padding: 72px var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.footer-home-columnas {
+  display: flex;
+  gap: 96px;
+}
+
+.footer-newsletter {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.footer-titulo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 68px;
+  text-transform: uppercase;
+}
+
+.footer-texto {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newsletter-form label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  color: var(--text-muted);
+}
+
+.newsletter-fila {
+  display: flex;
+}
+
+.newsletter-fila input {
+  width: 320px;
+  max-width: 100%;
+  height: 56px;
+  padding: 0 20px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  font-size: 15px;
+}
+
+.newsletter-fila input::placeholder {
+  color: var(--text-muted);
+}
+
+.newsletter-fila input:focus {
+  outline: none;
+  border-color: var(--accent-neon);
+}
+
+.footer-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.footer-columna a {
+  transition: color 0.3s ease;
+}
+
+.footer-columna a:hover {
+  color: var(--accent-neon);
+}
+
+.footer-columna-titulo {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: var(--accent-neon);
+}
+
+.footer-legal {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.48px;
+  color: var(--text-muted);
+}
+
+.footer-legal p:first-child {
+  flex: 1 0 0;
+}
+
+.footer-legal p:last-child {
+  white-space: pre;
+}
+
+/* ### Responsive ### */
+@media (max-width: 1100px) {
+  .hero-acciones {
+    gap: 16px;
+  }
+
+  .editorial-texto {
+    width: 50%;
+    padding: 48px;
+  }
+
+  .editorial-titulo {
+    font-size: 60px;
+    line-height: 64px;
+    white-space: normal;
+  }
+
+  .categoria-tarjeta {
+    height: 360px;
+  }
+
+  .footer-home-columnas {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-home {
+    height: auto;
+    min-height: 640px;
+    padding-top: 96px;
+  }
+
+  /* foto de fondo completa en celular */
+  .hero-foto {
+    width: 100%;
+    filter: brightness(0.45);
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .hero-pie {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .hero-acciones {
+    margin-left: 0;
+    flex-wrap: wrap;
+  }
+
+  .seccion-home {
+    padding: 64px var(--gutter);
+  }
+
+  .seccion-cabeza .link-flecha {
+    display: none;
+  }
+
+  .editorial-home {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .editorial-foto {
+    height: 420px;
+    flex: none;
+  }
+
+  .editorial-texto {
+    width: 100%;
+    padding: 48px var(--gutter);
+  }
+
+  .beneficios-home {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footer-home-columnas {
+    flex-wrap: wrap;
+  }
+
+  .footer-newsletter {
+    flex: 1 0 100%;
+  }
+
+  .footer-titulo {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-acciones .boton {
+    width: 100%;
+  }
+
+  .marquee-track {
+    font-size: 22px;
+  }
+
+  .editorial-titulo {
+    font-size: 44px;
+    line-height: 48px;
+  }
+
+  .categorias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .categoria-tarjeta {
+    height: 320px;
+  }
+
+  .newsletter-fila {
+    flex-direction: column;
+  }
+
+  .newsletter-fila input {
+    width: 100%;
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

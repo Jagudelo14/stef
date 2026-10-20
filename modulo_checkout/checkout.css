@@ -1,0 +1,214 @@
+/*
+ * ### Archivo: checkout.css ###
+ * Autor: Juan Camilo Agudelo (Jagudelo14)
+ * Correo: camiloagu1401@gmail.com
+ * Formación: Tecnólogo ADSO - SENA
+ * Ficha: 3186662
+ * Fecha: 2026-10-19
+ * Descripción: Estilos del checkout (encabezado propio, pasos, formulario y métodos de pago)
+ */
+
+/* ### Encabezado checkout ### */
+.header-checkout {
+  display: flex;
+  align-items: center;
+  padding: 24px var(--gutter);
+  border-bottom: 1px solid var(--line-default);
+  background-color: var(--bg-base);
+}
+
+.header-checkout-volver,
+.header-checkout-seguro {
+  flex: 1 0 0;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+}
+
+.header-checkout-volver {
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.header-checkout-volver:hover {
+  color: var(--accent-neon);
+}
+
+.header-checkout-seguro {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.logo-texto-checkout {
+  font-size: 30.4px;
+  letter-spacing: 2.432px;
+}
+
+/* ### Pasos ### */
+.pasos {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 32px var(--gutter);
+  font-size: 12px;
+}
+
+.paso {
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+  white-space: pre;
+}
+
+.paso.activo {
+  color: var(--accent-neon);
+}
+
+.paso-separador {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* ### Cuerpo ### */
+.cuerpo-checkout {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+  padding: 16px var(--gutter) 96px;
+}
+
+.formulario {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.formulario-grupo {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formulario-grupo legend {
+  font-family: var(--font-display);
+  font-size: 36px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.formulario-fila {
+  display: flex;
+  gap: 16px;
+}
+
+/* ### Métodos de pago ### */
+.formulario-metodos {
+  gap: 16px;
+}
+
+.formulario-metodos legend {
+  margin-bottom: 16px;
+}
+
+.metodo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--line-strong);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.metodo:hover {
+  border-color: var(--text-primary);
+}
+
+.metodo:has(input:checked) {
+  border: 2px solid var(--accent-neon);
+  padding: 17px 19px;
+}
+
+.metodo input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.metodo:has(input:focus-visible) {
+  outline: 2px solid var(--accent-neon);
+  outline-offset: 2px;
+}
+
+.metodo-icono {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.metodo-icono img {
+  width: 16px;
+  height: 16px;
+}
+
+.metodo .radio-on,
+.metodo input:checked + .metodo-icono .radio-off {
+  display: none;
+}
+
+.metodo input:checked + .metodo-icono .radio-on {
+  display: block;
+}
+
+/* ### Resumen checkout ### */
+#resumen-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#resumen-items .resumen-fila span:first-child {
+  white-space: pre-wrap;
+}
+
+/* ### Responsive ### */
+@media (max-width: 900px) {
+  .cuerpo-checkout {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .formulario {
+    width: 100%;
+  }
+
+  .header-checkout-seguro {
+    display: none;
+  }
+
+  .header-checkout .logo-stef {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .formulario-fila {
+    flex-direction: column;
+  }
+
+  .formulario-grupo legend {
+    font-size: 30px;
+  }
+
+  .pasos {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+}

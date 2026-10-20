@@ -1,0 +1,117 @@
+<!--
+  ### Archivo: producto.html ###
+  Autor: Juan Camilo Agudelo (Jagudelo14)
+  Correo: camiloagu1401@gmail.com
+  Formación: Tecnólogo ADSO - SENA
+  Ficha: 3186662
+  Fecha: 2026-10-19
+  Descripción: Detalle de producto con galería, selección de color y talla, y productos relacionados
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto · STEF</title>
+  <link rel="icon" type="image/png" href="assets/img/logo-marca.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Componentes/global.css">
+  <link rel="stylesheet" href="modulo_producto/producto.css">
+</head>
+<body>
+  <!-- ### Encabezado ### -->
+  <header id="header"></header>
+
+  <main id="contenido-producto">
+    <!-- ### Migas ### -->
+    <p class="migas-producto texto-mono texto-muted" id="migas-producto"></p>
+
+    <!-- ### Producto ### -->
+    <section class="producto">
+      <!-- ### Galería ### -->
+      <div class="galeria">
+        <div class="foto galeria-principal" id="galeria-principal"></div>
+      </div>
+
+      <!-- ### Información ### -->
+      <div class="info-producto">
+        <p class="seccion-etiqueta">DROP 02  /  UNISEX</p>
+        <h1 class="info-titulo" id="nombre-producto"></h1>
+        <div class="info-precio">
+          <p id="precio-producto"></p>
+          <span>COP · IVA incluido</span>
+        </div>
+        <p class="info-descripcion" id="descripcion-producto"></p>
+
+        <!-- ### Selector color ### -->
+        <div class="info-bloque">
+          <p class="info-label" id="label-color"></p>
+          <div class="selector-colores" id="selector-colores" role="radiogroup" aria-label="Color"></div>
+        </div>
+
+        <!-- ### Selector talla ### -->
+        <div class="info-bloque">
+          <div class="info-label-fila">
+            <p class="info-label">TALLA</p>
+            <button type="button" class="info-guia" id="guia-tallas">GUÍA DE TALLAS</button>
+          </div>
+          <div class="selector-tallas" id="selector-tallas" role="radiogroup" aria-label="Talla"></div>
+        </div>
+
+        <p class="info-stock" id="info-stock"><img src="assets/img/punto-stock.svg" alt=""><span></span></p>
+
+        <!-- ### Agregar al carrito ### -->
+        <div class="info-compra">
+          <div class="contador contador-grande">
+            <button type="button" id="restar-cantidad" aria-label="Restar uno">−</button>
+            <span id="cantidad">1</span>
+            <button type="button" id="sumar-cantidad" aria-label="Sumar uno">+</button>
+          </div>
+          <button type="button" class="boton boton-primario info-agregar" id="agregar-carrito">Agregar al carrito</button>
+        </div>
+
+        <!-- ### Detalles ### -->
+        <div class="detalles">
+          <details>
+            <summary>MATERIALES Y CUIDADO</summary>
+            <p>Algodón de alto gramaje. Lavar al revés con agua fría, no usar secadora y planchar por el revés para cuidar el estampado.</p>
+          </details>
+          <details>
+            <summary>ENVÍOS Y CAMBIOS</summary>
+            <p>Despacho en 24 a 48 horas hábiles a todo Colombia. Envío gratis desde $250.000. Cambios de talla dentro de los primeros 15 días.</p>
+          </details>
+          <details>
+            <summary>GUÍA DE MEDIDAS</summary>
+            <p>Corte amplio. S: 56 cm de pecho · M: 59 cm · L: 62 cm · XL: 65 cm. Si estás entre dos tallas, elige la menor.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ### Combina con ### -->
+    <section class="combina">
+      <div class="seccion-cabeza">
+        <h2 class="combina-titulo">COMBINA CON</h2>
+        <div class="carrusel-controles">
+          <button type="button" class="boton-cuadrado" id="combina-anterior" aria-label="Anterior">←</button>
+          <button type="button" class="boton-cuadrado" id="combina-siguiente" aria-label="Siguiente">→</button>
+        </div>
+      </div>
+      <div class="carrusel-viewport" id="combina-viewport">
+        <div class="carrusel-track" id="combina-track"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ### Pie de página ### -->
+  <footer id="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.all.min.js"></script>
+  <script src="Componentes/datos.js"></script>
+  <script src="Componentes/almacen.js"></script>
+  <script src="Componentes/componentes.js"></script>
+  <script src="modulo_producto/producto.js"></script>
+</body>
+</html>

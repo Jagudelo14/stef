@@ -1,0 +1,65 @@
+<!--
+  ### Archivo: admin.html ###
+  Autor: Juan Camilo Agudelo (Jagudelo14)
+  Correo: camiloagu1401@gmail.com
+  Formación: Tecnólogo ADSO - SENA
+  Ficha: 3186662
+  Fecha: 2026-10-19
+  Descripción: Panel administrador con métricas, pedidos, productos e inventario
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel admin · STEF</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="assets/img/logo-marca.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Componentes/global.css">
+  <link rel="stylesheet" href="modulo_admin/admin.css">
+</head>
+<body class="body-admin">
+  <div class="container-admin">
+    <!-- ### Sidebar ### -->
+    <aside class="izquierda-admin">
+      <a href="index.html" class="logo-stef" aria-label="STEF - Ir a la tienda">
+        <img class="logo-marca logo-marca-admin" src="assets/img/logo-marca.png" alt="">
+        <span class="logo-texto logo-texto-admin">STEF</span>
+      </a>
+      <p class="texto-mono texto-muted admin-etiqueta">PANEL ADMIN</p>
+      <nav class="menu-admin" id="menu-admin" aria-label="Panel admin">
+        <button type="button" class="menu-admin-item activo" data-panel="resumen">Resumen</button>
+        <button type="button" class="menu-admin-item" data-panel="productos">Productos</button>
+        <button type="button" class="menu-admin-item" data-panel="inventario">Inventario</button>
+        <button type="button" class="menu-admin-item" data-panel="pedidos">Pedidos</button>
+        <button type="button" class="menu-admin-item" data-panel="clientes">Clientes</button>
+        <button type="button" class="menu-admin-item" data-panel="descuentos">Descuentos</button>
+        <button type="button" class="menu-admin-item" data-panel="ajustes">Ajustes</button>
+      </nav>
+    </aside>
+
+    <!-- ### Contenido ### -->
+    <main class="derecha-admin">
+      <!-- ### Encabezado ### -->
+      <div class="admin-cabeza">
+        <div class="admin-cabeza-textos">
+          <p class="seccion-etiqueta" id="fecha-admin"></p>
+          <h1 class="admin-titulo" id="titulo-admin">RESUMEN</h1>
+        </div>
+        <button type="button" class="boton boton-primario" id="nuevo-producto">Nuevo producto</button>
+      </div>
+
+      <div id="panel-admin" class="panel-admin"></div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.all.min.js"></script>
+  <script src="Componentes/datos.js"></script>
+  <script src="Componentes/almacen.js"></script>
+  <script src="Componentes/componentes.js"></script>
+  <script src="modulo_admin/admin.js"></script>
+</body>
+</html>

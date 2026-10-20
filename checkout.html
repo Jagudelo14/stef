@@ -1,0 +1,152 @@
+<!--
+  ### Archivo: checkout.html ###
+  Autor: Juan Camilo Agudelo (Jagudelo14)
+  Correo: camiloagu1401@gmail.com
+  Formación: Tecnólogo ADSO - SENA
+  Ficha: 3186662
+  Fecha: 2026-10-19
+  Descripción: Checkout con datos de contacto, dirección de entrega y método de pago
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago seguro · STEF</title>
+  <link rel="icon" type="image/png" href="assets/img/logo-marca.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Componentes/global.css">
+  <link rel="stylesheet" href="modulo_checkout/checkout.css">
+</head>
+<body>
+  <!-- ### Encabezado checkout ### -->
+  <header class="header-checkout">
+    <a href="carrito.html" class="header-checkout-volver">← VOLVER AL CARRITO</a>
+    <a href="index.html" class="logo-stef" aria-label="STEF - Inicio">
+      <img class="logo-marca" src="assets/img/logo-marca.png" alt="">
+      <span class="logo-texto logo-texto-checkout">STEF</span>
+    </a>
+    <p class="header-checkout-seguro">PAGO SEGURO</p>
+  </header>
+
+  <main>
+    <!-- ### Pasos ### -->
+    <ol class="pasos" aria-label="Pasos del pago">
+      <li class="paso activo" aria-current="step">1  DATOS Y ENTREGA</li>
+      <li class="paso-separador" aria-hidden="true">——</li>
+      <li class="paso">2  PAGO</li>
+    </ol>
+
+    <!-- ### Cuerpo ### -->
+    <form class="cuerpo-checkout" id="form-checkout" novalidate>
+      <div class="formulario">
+        <!-- ### Contacto ### -->
+        <fieldset class="formulario-grupo">
+          <legend>Contacto</legend>
+          <div class="formulario-fila">
+            <div class="campo">
+              <label for="correo">CORREO</label>
+              <input type="email" id="correo" name="correo" placeholder="juan@correo.com" autocomplete="email" required>
+            </div>
+            <div class="campo">
+              <label for="celular">CELULAR</label>
+              <input type="tel" id="celular" name="celular" placeholder="+57 300 000 0000" autocomplete="tel" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ### Dirección de entrega ### -->
+        <fieldset class="formulario-grupo">
+          <legend>Dirección de entrega</legend>
+          <div class="formulario-fila">
+            <div class="campo">
+              <label for="nombre">NOMBRE</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Juan Camilo" autocomplete="given-name" required>
+            </div>
+            <div class="campo">
+              <label for="apellidos">APELLIDOS</label>
+              <input type="text" id="apellidos" name="apellidos" placeholder="Agudelo Patiño" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="formulario-fila">
+            <div class="campo">
+              <label for="direccion">DIRECCIÓN</label>
+              <input type="text" id="direccion" name="direccion" placeholder="Cra 00 # 00 – 00, Apto 000" autocomplete="street-address" required>
+            </div>
+          </div>
+          <div class="formulario-fila">
+            <div class="campo">
+              <label for="ciudad">CIUDAD</label>
+              <input type="text" id="ciudad" name="ciudad" placeholder="Bogotá D.C." autocomplete="address-level2" required>
+            </div>
+            <div class="campo">
+              <label for="barrio">BARRIO / LOCALIDAD</label>
+              <input type="text" id="barrio" name="barrio" placeholder="San Cristóbal" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ### Método de pago ### -->
+        <fieldset class="formulario-grupo formulario-metodos">
+          <legend>Método de pago</legend>
+          <label class="metodo">
+            <input type="radio" name="metodo" value="Tarjeta débito o crédito" checked>
+            <span class="metodo-icono">
+              <img class="radio-on" src="assets/img/radio-activo.svg" alt="">
+              <img class="radio-off" src="assets/img/radio.svg" alt="">
+            </span>
+            <span>Tarjeta débito o crédito</span>
+          </label>
+          <label class="metodo">
+            <input type="radio" name="metodo" value="PSE">
+            <span class="metodo-icono">
+              <img class="radio-on" src="assets/img/radio-activo.svg" alt="">
+              <img class="radio-off" src="assets/img/radio.svg" alt="">
+            </span>
+            <span>PSE</span>
+          </label>
+          <label class="metodo">
+            <input type="radio" name="metodo" value="Nequi">
+            <span class="metodo-icono">
+              <img class="radio-on" src="assets/img/radio-activo.svg" alt="">
+              <img class="radio-off" src="assets/img/radio.svg" alt="">
+            </span>
+            <span>Nequi</span>
+          </label>
+          <label class="metodo">
+            <input type="radio" name="metodo" value="Contra entrega">
+            <span class="metodo-icono">
+              <img class="radio-on" src="assets/img/radio-activo.svg" alt="">
+              <img class="radio-off" src="assets/img/radio.svg" alt="">
+            </span>
+            <span>Contra entrega</span>
+          </label>
+        </fieldset>
+      </div>
+
+      <!-- ### Resumen ### -->
+      <aside class="resumen" aria-label="Resumen del pedido">
+        <p class="seccion-etiqueta">RESUMEN</p>
+        <div id="resumen-items"></div>
+        <div class="resumen-fila" id="fila-descuento" hidden><span id="label-descuento">Descuento</span><span id="valor-descuento">−$0</span></div>
+        <div class="resumen-fila"><span>Envío</span><span id="valor-envio">Gratis</span></div>
+        <div class="resumen-linea"></div>
+        <div class="resumen-fila resumen-total"><span>Total</span><span id="valor-total">$0</span></div>
+        <button type="submit" class="boton boton-primario boton-ancho" id="boton-pagar">Pagar $0</button>
+        <p class="resumen-nota">Al confirmar aceptas los términos y la política de datos.</p>
+      </aside>
+    </form>
+  </main>
+
+  <!-- ### Pie de página ### -->
+  <footer id="footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.all.min.js"></script>
+  <script src="Componentes/datos.js"></script>
+  <script src="Componentes/almacen.js"></script>
+  <script src="Componentes/componentes.js"></script>
+  <script src="modulo_checkout/checkout.js"></script>
+</body>
+</html>

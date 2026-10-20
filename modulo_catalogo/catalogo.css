@@ -1,0 +1,311 @@
+/*
+ * ### Archivo: catalogo.css ###
+ * Autor: Juan Camilo Agudelo (Jagudelo14)
+ * Correo: camiloagu1401@gmail.com
+ * Formación: Tecnólogo ADSO - SENA
+ * Ficha: 3186662
+ * Fecha: 2026-10-19
+ * Descripción: Estilos del catálogo (cabecera, chips, filtros, grilla y paginación)
+ */
+
+/* ### Cabecera catálogo ### */
+.cabecera-catalogo {
+  padding: 56px var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.cabecera-catalogo .seccion-etiqueta {
+  white-space: pre;
+}
+
+.cabecera-catalogo-fila {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.cabecera-catalogo-titulo {
+  flex: 1 0 0;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 120px;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.cabecera-catalogo-fila .texto-mono {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* ### Chips ### */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  padding: 14px 16px;
+  border: 1px solid var(--line-strong);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.chip:hover {
+  border-color: var(--text-primary);
+}
+
+.chip.activo {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--text-on-paper);
+}
+
+/* ### Cuerpo ### */
+.cuerpo-catalogo {
+  border-top: 1px solid var(--line-default);
+  padding: 24px var(--gutter) 96px;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* ### Filtros ### */
+.filtros {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  position: sticky;
+  top: 140px;
+}
+
+.filtro-grupo {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.filtro-grupo legend {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: var(--accent-neon);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.check input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--line-strong);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.check input:checked {
+  background-color: var(--accent-neon);
+  border-color: var(--accent-neon);
+}
+
+.check:hover input:not(:checked) {
+  border-color: var(--text-primary);
+}
+
+.filtros-limpiar {
+  align-self: flex-start;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.filtros-limpiar:hover {
+  color: var(--accent-neon);
+}
+
+/* ### Listado ### */
+.listado {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.listado-barra {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.listado-conteo {
+  flex: 1 0 0;
+}
+
+.filtros-toggle {
+  display: none;
+  padding: 14px 16px;
+  font-size: 12px;
+}
+
+.ordenar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line-strong);
+  padding: 0 0 0 16px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  white-space: nowrap;
+}
+
+.ordenar select {
+  appearance: none;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0h8L4 5z' fill='%23f4f4f0'/%3E%3C/svg%3E") no-repeat right 16px center;
+  border: none;
+  padding: 14px 36px 14px 0;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  cursor: pointer;
+}
+
+.ordenar select option {
+  background-color: var(--bg-raised);
+}
+
+.listado-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 24px;
+}
+
+/* ### Paginación ### */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 24px;
+}
+
+.paginacion .boton-cuadrado {
+  font-size: 13px;
+}
+
+.paginacion .boton-cuadrado.activo {
+  background-color: var(--accent-neon);
+  border-color: var(--accent-neon);
+  color: var(--text-on-paper);
+}
+
+.paginacion .boton-cuadrado:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ### Responsive ### */
+@media (max-width: 1100px) {
+  .cabecera-catalogo-titulo {
+    font-size: 88px;
+    line-height: 88px;
+  }
+
+  .listado-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cabecera-catalogo {
+    padding: 40px var(--gutter);
+  }
+
+  .cabecera-catalogo-fila {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .cabecera-catalogo-titulo {
+    font-size: 64px;
+    line-height: 64px;
+  }
+
+  .cuerpo-catalogo {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .filtros {
+    display: none;
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line-default);
+  }
+
+  .filtros.abierto {
+    display: flex;
+  }
+
+  .filtros-limpiar {
+    flex-basis: 100%;
+  }
+
+  .filtros-toggle {
+    display: inline-flex;
+  }
+
+  .listado {
+    width: 100%;
+  }
+
+  .listado-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .listado-barra {
+    flex-wrap: wrap;
+  }
+
+  .listado-conteo {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .listado-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecera-catalogo-titulo {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}

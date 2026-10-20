@@ -1,0 +1,166 @@
+<!--
+  ### Archivo: index.html ###
+  Autor: Juan Camilo Agudelo (Jagudelo14)
+  Correo: camiloagu1401@gmail.com
+  Formación: Tecnólogo ADSO - SENA
+  Ficha: 3186662
+  Fecha: 2026-10-19
+  Descripción: Página de inicio de STEF (hero, lo nuevo, editorial, categorías y newsletter)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEF · Simplicidad Selecta</title>
+  <meta name="description" content="Hoodies y camisetas unisex, y ropa para tu perro. Estampado trazo, cortes amplios. Bogotá, Colombia.">
+  <link rel="icon" type="image/png" href="assets/img/logo-marca.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Componentes/global.css">
+  <link rel="stylesheet" href="modulo_home/home.css">
+</head>
+<body>
+  <!-- ### Encabezado ### -->
+  <header id="header"></header>
+
+  <main>
+    <!-- ### Hero ### -->
+    <section class="hero-home">
+      <img class="hero-foto" src="assets/img/hero-pareja.jpg" alt="Pareja con hoodies pasamontañas en negro noche y blanco hielo">
+      <p class="hero-kicker">DROP 02  /  BOGOTÁ, CO</p>
+      <h1 class="hero-titulo">SIMPLICIDAD<br>SELECTA</h1>
+      <div class="hero-pie">
+        <p class="hero-texto">Hoodies y camisetas unisex, y ropa para tu perro. Estampado trazo, cortes amplios, hechos para andar la ciudad de noche y de día.</p>
+        <div class="hero-acciones">
+          <a href="catalogo.html" class="boton boton-primario">Comprar el drop 02</a>
+          <a href="catalogo.html" class="boton boton-fantasma">Ver la tienda</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ### Marquee ### -->
+    <div class="marquee-home" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track"></div>
+    </div>
+
+    <!-- ### Lo nuevo ### -->
+    <section class="seccion-home">
+      <div class="seccion-cabeza">
+        <div class="seccion-cabeza-textos">
+          <p class="seccion-etiqueta">— LO NUEVO</p>
+          <h2 class="seccion-titulo">Recién salido</h2>
+        </div>
+        <div class="carrusel-controles">
+          <button type="button" class="boton-cuadrado" id="nuevo-anterior" aria-label="Anterior">←</button>
+          <button type="button" class="boton-cuadrado" id="nuevo-siguiente" aria-label="Siguiente">→</button>
+        </div>
+        <a href="catalogo.html" class="link-flecha">VER TODO →</a>
+      </div>
+      <div class="carrusel-viewport" id="nuevo-viewport">
+        <div class="carrusel-track" id="nuevo-track"></div>
+      </div>
+    </section>
+
+    <!-- ### Editorial ### -->
+    <section class="editorial-home">
+      <div class="foto editorial-foto">
+        <img class="foto-imagen" src="assets/img/editorial-duo.jpg" alt="Dos personas y sus perros con la camiseta trazo neón" loading="lazy">
+      </div>
+      <div class="editorial-texto">
+        <p class="seccion-etiqueta">— HECHO PARA DOS</p>
+        <h2 class="editorial-titulo">TÚ Y TU PERRO.<br>UN MISMO TRAZO.</h2>
+        <p class="editorial-parrafo">La camiseta trazo neón tiene versión para perro, con el mismo corazón reflectivo en el pecho. Se ve igual de bien de día que de noche, cuando el trazo brilla con la luz de la calle.</p>
+        <a href="catalogo.html?categoria=mascotas" class="boton boton-papel">Ver mascotas</a>
+      </div>
+    </section>
+
+    <!-- ### Categorías ### -->
+    <section class="seccion-home">
+      <div class="seccion-cabeza">
+        <div class="seccion-cabeza-textos">
+          <p class="seccion-etiqueta">— COMPRA POR</p>
+          <h2 class="seccion-titulo">Categoría</h2>
+        </div>
+      </div>
+      <div class="categorias-grid">
+        <a href="catalogo.html?categoria=hoodies" class="foto categoria-tarjeta">
+          <img class="foto-imagen" src="assets/img/productos/hoodie-pasamontanas.jpg" alt="" loading="lazy">
+          <span class="categoria-nombre">HOODIES</span>
+        </a>
+        <a href="catalogo.html?categoria=camisetas" class="foto categoria-tarjeta">
+          <img class="foto-imagen" src="assets/img/productos/camiseta-manga-larga-lila.jpg" alt="" loading="lazy">
+          <span class="categoria-nombre">CAMISETAS</span>
+        </a>
+        <a href="catalogo.html?categoria=mascotas" class="foto categoria-tarjeta">
+          <img class="foto-imagen" src="assets/img/productos/hoodie-mascota-hielo.jpg" alt="" loading="lazy">
+          <span class="categoria-nombre">MASCOTAS</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ### Beneficios ### -->
+    <section class="beneficios-home">
+      <div class="beneficio">
+        <h3>ENVÍOS A TODO COLOMBIA</h3>
+        <p>Despacho en 24 a 48 horas hábiles.</p>
+      </div>
+      <div class="beneficio">
+        <h3>CAMBIOS SIN VUELTAS</h3>
+        <p>Cambia talla dentro de los primeros 15 días.</p>
+      </div>
+      <div class="beneficio">
+        <h3>PAGA COMO QUIERAS</h3>
+        <p>Tarjeta, PSE, Nequi o contra entrega.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ### Pie de página ### -->
+  <footer class="footer-home">
+    <div class="footer-home-columnas">
+      <div class="footer-newsletter">
+        <h2 class="footer-titulo">ENTRA AL<br>SIGUIENTE DROP</h2>
+        <p class="footer-texto">Un correo cuando sale algo nuevo. Nada más.</p>
+        <form class="newsletter-form" id="form-newsletter" novalidate>
+          <label for="correo-newsletter">CORREO ELECTRÓNICO</label>
+          <div class="newsletter-fila">
+            <input type="email" id="correo-newsletter" placeholder="tucorreo@email.com" required>
+            <button type="submit" class="boton boton-primario">Suscribirme</button>
+          </div>
+        </form>
+      </div>
+      <nav class="footer-columna" aria-label="Ayuda">
+        <p class="footer-columna-titulo">AYUDA</p>
+        <a href="#" data-ayuda="envios">Envíos</a>
+        <a href="#" data-ayuda="cambios">Cambios y devoluciones</a>
+        <a href="#" data-ayuda="tallas">Guía de tallas</a>
+        <a href="#" data-ayuda="contacto">Contacto</a>
+      </nav>
+      <nav class="footer-columna" aria-label="Tienda">
+        <p class="footer-columna-titulo">TIENDA</p>
+        <a href="catalogo.html?categoria=hoodies">Hoodies</a>
+        <a href="catalogo.html?categoria=camisetas">Camisetas</a>
+        <a href="catalogo.html?categoria=mascotas">Mascotas</a>
+      </nav>
+      <nav class="footer-columna" aria-label="Redes">
+        <p class="footer-columna-titulo">SÍGUENOS</p>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      </nav>
+    </div>
+    <div class="footer-legal">
+      <p>© 2026 STEF · Simplicidad Selecta · Bogotá, Colombia</p>
+      <p>Privacidad  /  Términos</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.all.min.js"></script>
+  <script src="Componentes/datos.js"></script>
+  <script src="Componentes/almacen.js"></script>
+  <script src="Componentes/componentes.js"></script>
+  <script src="modulo_home/home.js"></script>
+</body>
+</html>
