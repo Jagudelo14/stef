@@ -4,7 +4,7 @@
  * Correo: camiloagu1401@gmail.com
  * Formación: Tecnólogo ADSO - SENA
  * Ficha: 3186662
- * Fecha: 2026-10-19
+ * Fecha: 2026-11-05
  * Descripción: Estilos del detalle de producto
  */
 
@@ -324,6 +324,14 @@
 }
 
 @media (max-width: 600px) {
+  .info-compra {
+    flex-wrap: wrap;
+  }
+
+  .info-agregar {
+    flex-basis: 100%;
+  }
+
   .info-titulo {
     font-size: 40px;
     line-height: 44px;

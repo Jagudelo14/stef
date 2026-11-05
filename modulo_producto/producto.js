@@ -4,7 +4,7 @@
  * Correo: camiloagu1401@gmail.com
  * Formación: Tecnólogo ADSO - SENA
  * Ficha: 3186662
- * Fecha: 2026-10-19
+ * Fecha: 2026-11-05
  * Descripción: Detalle de producto (galería, color, talla, cantidad y agregar al carrito)
  */
 
@@ -131,13 +131,19 @@ const handleCambiarCantidad = (cambio) => {
 const handleAgregarCarrito = async () => {
   if (!estado.talla) return;
 
-  agregarAlCarrito({ id: producto.id, talla: estado.talla, color: estado.color, cantidad: estado.cantidad });
+  const agregadas = agregarAlCarrito({ id: producto.id, talla: estado.talla, color: estado.color, cantidad: estado.cantidad });
+
+  // sin stock disponible
+  if (agregadas === 0) {
+    alertaInfo("Sin más unidades", `Ya tienes en tu carrito las ${producto.stock[estado.talla]} disponibles en talla ${estado.talla}.`);
+    return;
+  }
 
   const { isConfirmed } = await Alerta.fire({
     icon: "success",
     iconColor: "#5cf4e6",
-    title: "Agregado al carrito",
-    text: `${producto.nombre} · Talla ${estado.talla} · ${COLORES[estado.color].nombre} × ${estado.cantidad}`,
+    title: agregadas < estado.cantidad ? `Solo se agregaron ${agregadas}` : "Agregado al carrito",
+    text: `${producto.nombre} · Talla ${estado.talla} · ${COLORES[estado.color].nombre} × ${agregadas}`,
     showCancelButton: true,
     confirmButtonText: "Ver carrito",
     cancelButtonText: "Seguir comprando",

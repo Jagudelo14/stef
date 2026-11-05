@@ -4,15 +4,25 @@
  * Correo: camiloagu1401@gmail.com
  * Formación: Tecnólogo ADSO - SENA
  * Ficha: 3186662
- * Fecha: 2026-10-19
+ * Fecha: 2026-11-05
  * Descripción: Validación del checkout y creación del pedido simulado
  */
 
 // ### Configuración ###
 const CAMPOS = ["correo", "celular", "nombre", "apellidos", "direccion", "ciudad", "barrio"];
 
+const MENSAJES_VACIO = {
+  correo: "Escribe tu correo",
+  celular: "Escribe tu celular",
+  nombre: "Escribe tu nombre",
+  apellidos: "Escribe tus apellidos",
+  direccion: "Escribe la dirección de entrega",
+  ciudad: "Escribe la ciudad",
+  barrio: "Escribe el barrio o la localidad",
+};
+
 const VALIDADORES = {
-  correo: (valor) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor) || "Correo inválido",
+  correo: (valor) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor) || "Revisa el correo; debe verse como nombre@correo.com",
   celular: (valor) => valor.replace(/\D/g, "").length >= 10 || "El celular debe tener al menos 10 dígitos",
 };
 
@@ -47,17 +57,37 @@ const precargarCliente = () => {
 };
 
 // ### Validación ###
+// mensaje junto al campo
+const pintarError = (input, mensaje) => {
+  const idMensaje = `${input.id}-error`;
+  document.getElementById(idMensaje)?.remove();
+  input.classList.toggle("campo-error", mensaje !== true);
+
+  if (mensaje === true) {
+    input.removeAttribute("aria-invalid");
+    input.removeAttribute("aria-describedby");
+    return;
+  }
+
+  const parrafo = document.createElement("p");
+  parrafo.id = idMensaje;
+  parrafo.className = "campo-mensaje";
+  parrafo.textContent = mensaje;
+  input.after(parrafo);
+  input.setAttribute("aria-invalid", "true");
+  input.setAttribute("aria-describedby", idMensaje);
+};
+
 const validarFormulario = () => {
   const errores = [];
 
   CAMPOS.forEach((campo) => {
     const input = document.getElementById(campo);
     const valor = input.value.trim();
-    let mensaje = valor ? true : "Campo obligatorio";
+    let mensaje = valor ? true : MENSAJES_VACIO[campo];
     if (valor && VALIDADORES[campo]) mensaje = VALIDADORES[campo](valor);
 
-    input.classList.toggle("campo-error", mensaje !== true);
-    input.setAttribute("aria-invalid", mensaje !== true);
+    pintarError(input, mensaje);
     if (mensaje !== true) errores.push({ input, mensaje });
   });
 
@@ -76,8 +106,7 @@ const handlePagar = async (evento) => {
 
   const errores = validarFormulario();
   if (errores.length) {
-    errores[0].input.focus();
-    alertaError("Revisa tus datos", errores.map((error) => error.mensaje).filter((mensaje, indice, lista) => lista.indexOf(mensaje) === indice).join(". "));
+    errores[0].input.focus(); // foco al primer error
     return;
   }
 
@@ -123,8 +152,7 @@ const handlePagar = async (evento) => {
 // limpiar error al escribir
 const handleLimpiarError = (evento) => {
   if (evento.target.classList.contains("campo-error")) {
-    evento.target.classList.remove("campo-error");
-    evento.target.removeAttribute("aria-invalid");
+    pintarError(evento.target, true);
   }
 };
 

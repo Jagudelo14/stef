@@ -4,7 +4,7 @@
  * Correo: camiloagu1401@gmail.com
  * Formación: Tecnólogo ADSO - SENA
  * Ficha: 3186662
- * Fecha: 2026-10-19
+ * Fecha: 2026-11-05
  * Descripción: Persistencia en localStorage (carrito, pedidos, productos) y utilidades de formato
  */
 
@@ -74,7 +74,18 @@ const guardarCarrito = (carrito) => {
 const cantidadCarrito = () => obtenerCarrito().reduce((suma, linea) => suma + linea.cantidad, 0);
 
 // misma talla y color suma cantidad
-const agregarAlCarrito = (nuevaLinea) => {
+// unidades en carrito por talla
+const unidadesEnCarrito = (id, talla) => obtenerCarrito()
+  .filter((linea) => linea.id === id && linea.talla === talla)
+  .reduce((suma, linea) => suma + linea.cantidad, 0);
+
+const agregarAlCarrito = (lineaPedida) => {
+  const producto = buscarProducto(lineaPedida.id);
+  const disponibles = Math.max(producto.stock[lineaPedida.talla] - unidadesEnCarrito(lineaPedida.id, lineaPedida.talla), 0);
+  const cantidad = Math.min(lineaPedida.cantidad, disponibles); // tope de stock
+  if (cantidad === 0) return 0;
+
+  const nuevaLinea = { ...lineaPedida, cantidad };
   const carrito = obtenerCarrito();
   const existente = carrito.find((linea) => linea.id === nuevaLinea.id && linea.talla === nuevaLinea.talla && linea.color === nuevaLinea.color);
   if (existente) {
@@ -83,6 +94,7 @@ const agregarAlCarrito = (nuevaLinea) => {
     carrito.push(nuevaLinea);
   }
   guardarCarrito(carrito);
+  return cantidad;
 };
 
 const obtenerCupon = () => leerJSON(LLAVES.cupon, null);

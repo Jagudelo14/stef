@@ -4,7 +4,7 @@
  * Correo: camiloagu1401@gmail.com
  * Formación: Tecnólogo ADSO - SENA
  * Ficha: 3186662
- * Fecha: 2026-10-19
+ * Fecha: 2026-11-05
  * Descripción: Estilos del carrito de compras
  */
 
@@ -65,7 +65,7 @@
   font-size: 12px;
   letter-spacing: 0.48px;
   color: var(--text-muted);
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .linea-quitar {
@@ -107,10 +107,14 @@
 }
 
 /* ### Responsive ### */
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   .cuerpo-carrito {
     flex-direction: column;
     gap: 32px;
+  }
+
+  .cuerpo-carrito .resumen {
+    width: 100%;
   }
 
   .lineas-carrito {

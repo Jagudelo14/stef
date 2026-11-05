@@ -4,7 +4,7 @@
  * Correo: camiloagu1401@gmail.com
  * Formación: Tecnólogo ADSO - SENA
  * Ficha: 3186662
- * Fecha: 2026-10-19
+ * Fecha: 2026-11-05
  * Descripción: Tokens de diseño y estilos compartidos (header, footer, botones, tarjetas)
  */
 
@@ -526,6 +526,16 @@ img {
   border-color: #ff6b6b;
 }
 
+.campo-mensaje {
+  font-size: 13px;
+  color: #ff6b6b;
+}
+
+/* respetar atributo hidden */
+[hidden] {
+  display: none !important;
+}
+
 /* ### Resumen de compra ### */
 .resumen {
   background-color: var(--bg-raised);
@@ -850,6 +860,27 @@ img {
 
   .resumen {
     padding: 24px;
+  }
+}
+
+/* objetivos táctiles en móvil */
+@media (max-width: 900px) {
+  .nav-menu-boton,
+  .nav-grupo-derecha a.nav-link:not(.nav-link-secundario) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer-simple a,
+  .footer-columna a {
+    display: inline-block;
+    padding: 6px 0;
+  }
+
+  #guia-tallas,
+  [data-ir] {
+    padding: 4px 0;
   }
 }
 

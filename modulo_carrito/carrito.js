@@ -4,7 +4,7 @@
  * Correo: camiloagu1401@gmail.com
  * Formación: Tecnólogo ADSO - SENA
  * Ficha: 3186662
- * Fecha: 2026-10-19
+ * Fecha: 2026-11-05
  * Descripción: Lógica del carrito (cantidades, quitar productos, cupón y totales)
  */
 
@@ -82,7 +82,7 @@ const handleAccionLinea = async (evento) => {
   const producto = buscarProducto(linea.id);
 
   if (boton.dataset.accion === "sumar") {
-    if (linea.cantidad >= producto.stock[linea.talla]) {
+    if (unidadesEnCarrito(linea.id, linea.talla) >= producto.stock[linea.talla]) {
       alertaInfo("Sin más unidades", `Solo quedan ${producto.stock[linea.talla]} en talla ${linea.talla}.`);
       return;
     }
